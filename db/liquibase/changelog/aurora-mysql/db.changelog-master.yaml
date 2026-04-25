@@ -1,0 +1,10 @@
+databaseChangeLog:
+  - changeSet:
+      id: 001-create-mysql-sample
+      author: admin
+      changes:
+        - sqlFile:
+            path: db/liquibase/changelog/aurora-mysql/mysql_ddl.sql
+            relativeToChangelogFile: false
+            splitStatements: true
+            endDelimiter: ";"

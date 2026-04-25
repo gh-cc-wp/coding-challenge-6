@@ -1,0 +1,29 @@
+version: 0.2
+env:
+  variables:
+    DB_SECRET_ARN: "arn:aws:secretsmanager:us-east-1:338394180895:secret:rds-db-credentials/cluster-PZV7DF6EBTFGHGC4KQLF7XPLBE/postgres/1772325524364-cc6GaM"
+    LB_CHANGELOG: "db/liquibase/changelog/aurora-pg/db.changelog-master.yaml"
+    DEFAULT_SCHEMA: "cc_system"
+    LB_SCHEMA: "cc_system"
+phases:
+  pre_build:
+    commands:
+      - set -euo pipefail
+      - SECRET_JSON=$(aws secretsmanager get-secret-value --secret-id "$DB_SECRET_ARN" --query SecretString --output text)
+      - DB_HOST=$(echo "$SECRET_JSON" | jq -r .host); DB_PORT=$(echo "$SECRET_JSON" | jq -r .port)
+      - DB_NAME=$(echo "$SECRET_JSON" | jq -r '.dbname // "postgres"'); DB_USER=$(echo "$SECRET_JSON" | jq -r .username); DB_PASSWORD=$(echo "$SECRET_JSON" | jq -r .password)
+      - LB_URL="jdbc:postgresql://${DB_HOST}:${DB_PORT}/${DB_NAME}?currentSchema=${DEFAULT_SCHEMA}"
+      - |
+        cat > liquibase.properties <<EOF
+        changeLogFile=${LB_CHANGELOG}
+        url=${LB_URL}
+        username=${DB_USER}
+        password=${DB_PASSWORD}
+        driver=org.postgresql.Driver
+        classpath=/opt/drivers/postgresql.jar
+        defaultSchemaName=${DEFAULT_SCHEMA}
+        liquibaseSchemaName=${LB_SCHEMA}
+        EOF
+  build:
+    commands:
+      - liquibase --classpath=/opt/drivers/postgresql.jar --defaultsFile=liquibase.properties update

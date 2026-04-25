@@ -1,0 +1,19 @@
+databaseChangeLog:
+  - changeSet:
+      id: 001-create-redshift-tables
+      author: Sekhar
+      changes:
+        - sqlFile:
+            path: db/liquibase/changelog/redshift/cc_demo_ddl.sql
+            relativeToChangelogFile: false
+            splitStatements: true
+            endDelimiter: ";"
+  - changeSet:
+      id: 002-load-redshift-tables
+      author: Mallik
+      changes:
+        - sqlFile:
+            path: db/liquibase/changelog/redshift/cc5_etl.sql
+            relativeToChangelogFile: false
+            splitStatements: true
+            endDelimiter: ";"

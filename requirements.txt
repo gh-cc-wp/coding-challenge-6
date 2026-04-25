@@ -1,0 +1,6 @@
+behave
+redshift_connector
+boto3
+pytest
+pytest-bdd
+pyspark

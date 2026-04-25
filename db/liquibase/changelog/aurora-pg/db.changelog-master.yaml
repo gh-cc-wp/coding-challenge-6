@@ -1,0 +1,19 @@
+databaseChangeLog:
+  - changeSet:
+      id: 001-create-postgres-tbls
+      author: Sekhar
+      changes:
+        - sqlFile:
+            path: db/liquibase/changelog/aurora-pg/cc_system_ddl.sql
+            relativeToChangelogFile: false
+            splitStatements: true
+            endDelimiter: ";"
+  - changeSet:
+      id: 002-load-postgres-tbls
+      author: Murthy
+      changes:
+        - sqlFile:
+            path: db/liquibase/changelog/aurora-pg/changelog.sql
+            relativeToChangelogFile: false
+            splitStatements: true
+            endDelimiter: ";"
