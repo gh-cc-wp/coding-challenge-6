@@ -1,5 +1,5 @@
 -- ============================================================
--- Redshift DDL for schema: cc_system tables
+-- Redshift DDL for schema: cc_system
 -- Source: s3://cc5-s3-landing-bucket/input/
 -- ============================================================
 
