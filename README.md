@@ -15,6 +15,8 @@ Each database has its own Docker image, buildspec, feature file, and step defini
 │  :mysql-tests        Python 3.9, pymysql, behave, boto3, pytest     │
 └─────────────────────────────────────────────────────────────────────┘
 ```
+## Overall Architecture
+![Overall Architecture](scripts/csa_challenge_architecture.png)
 ## CICD Pipeline Architecture
 ![CICD Architecture](scripts/cicd_pipeline_architecture.png)
 ## Pipelines (all manual trigger, `main` branch)
