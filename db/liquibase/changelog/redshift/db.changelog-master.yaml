@@ -13,7 +13,7 @@ databaseChangeLog:
       author: Mallik
       changes:
         - sqlFile:
-            path: db/liquibase/changelog/redshift/cc5_etl.sql
+            path: db/liquibase/changelog/redshift/cc6_etl.sql
             relativeToChangelogFile: false
             splitStatements: true
             endDelimiter: ";"
