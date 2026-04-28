@@ -2,7 +2,7 @@ import os
 import redshift_connector
 from behave import given, when, then
 
-CC_TABLES = ["plans", "beneficiaries", "pharmacies", "providers","claims", "approved_drugs"]
+CC_TABLES = ["beneficiaries", "providers", "pharmacies", "ndc", "claims_partd"]
 
 
 @given('I am connected to Redshift')
