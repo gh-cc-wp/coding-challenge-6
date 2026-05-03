@@ -2,7 +2,7 @@ import os
 import pymysql
 from behave import given, when, then
 
-CC_TABLES = ["sample_table"]
+CC_TABLES = ["beneficiaries", "providers", "pharmacies", "ndc", "claims_partd"]
 
 
 @given('I am connected to MySQL')
