@@ -1,10 +1,19 @@
 databaseChangeLog:
   - changeSet:
-      id: 001-create-mysql-sample
-      author: admin
+      id: 001-cc6-mysql-create-tables
+      author: cc6
       changes:
         - sqlFile:
             path: db/liquibase/changelog/aurora-mysql/mysql_ddl.sql
+            relativeToChangelogFile: false
+            splitStatements: true
+            endDelimiter: ";"
+  - changeSet:
+      id: 002-cc6-mysql-load-data
+      author: cc6
+      changes:
+        - sqlFile:
+            path: db/liquibase/changelog/aurora-mysql/mysql_load.sql
             relativeToChangelogFile: false
             splitStatements: true
             endDelimiter: ";"
