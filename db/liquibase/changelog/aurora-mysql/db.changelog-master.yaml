@@ -9,7 +9,7 @@ databaseChangeLog:
             splitStatements: true
             endDelimiter: ";"
   - changeSet:
-      id: 002-cc6-mysql-load-data
+      id: 003-cc6-mysql-load-data-v2
       author: cc6
       changes:
         - sqlFile:
