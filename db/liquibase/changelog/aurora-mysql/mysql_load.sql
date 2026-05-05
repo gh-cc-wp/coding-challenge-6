@@ -1,8 +1,6 @@
 -- CC6: MySQL data load from S3
--- Disable FK checks to load all data including intentional referential integrity exceptions
+-- No FK constraints (removed for Zero-ETL compatibility)
 -- Source: s3://cc-s3-landing-bucket/input/
-
-SET FOREIGN_KEY_CHECKS = 0;
 
 LOAD DATA FROM S3 's3://cc-s3-landing-bucket/input/beneficiaries.csv'
 INTO TABLE cc_system.beneficiaries
@@ -39,4 +37,3 @@ LINES TERMINATED BY '\n'
 IGNORE 1 LINES
 (claim_id,beneficiary_id,provider_id,pharmacy_id,ndc_code,date_of_service,quantity_dispensed,days_supply,total_mme,claim_amount,beneficiary_paid_amount,city,state,zip);
 
-SET FOREIGN_KEY_CHECKS = 1;

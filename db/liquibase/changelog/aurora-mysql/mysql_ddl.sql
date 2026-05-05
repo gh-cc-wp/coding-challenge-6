@@ -74,9 +74,8 @@ CREATE TABLE cc_system.claims_partd (
     city                    VARCHAR(50),
     state                   VARCHAR(2),
     zip                     VARCHAR(10),
-    PRIMARY KEY (claim_id),
-    FOREIGN KEY (beneficiary_id) REFERENCES cc_system.beneficiaries(beneficiary_id),
-    FOREIGN KEY (provider_id) REFERENCES cc_system.providers(provider_id),
-    FOREIGN KEY (pharmacy_id) REFERENCES cc_system.pharmacies(pharmacy_id),
-    FOREIGN KEY (ndc_code) REFERENCES cc_system.ndc(ndc_code)
+    PRIMARY KEY (claim_id)
+    -- FK constraints removed for Zero-ETL compatibility
+    -- Logical relationships: beneficiary_id→beneficiaries, provider_id→providers,
+    -- pharmacy_id→pharmacies, ndc_code→ndc
 );
