@@ -10,10 +10,10 @@ databaseChangeLog:
             endDelimiter: ";"
   - changeSet:
       id: 002-load-postgres-tbls
-      author: Murthy
+      author: Mallik
       changes:
         - sqlFile:
-            path: db/liquibase/changelog/aurora-pg/changelog.sql
+            path: db/liquibase/changelog/aurora-pg/cc6_etl.sql
             relativeToChangelogFile: false
             splitStatements: true
             endDelimiter: ";"
