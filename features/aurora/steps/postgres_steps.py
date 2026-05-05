@@ -2,7 +2,7 @@ import os
 import psycopg2
 from behave import given, when, then
 
-CC_TABLES = ["beneficiaries", "providers", "claims", "claim_line_items", "bene_enrollments", "provider_specialties"]
+CC_TABLES = ["claims_partd", "ndc", "pharmacies", "providers", "beneficiaries"]
 
 
 @given('I am connected to Aurora')
