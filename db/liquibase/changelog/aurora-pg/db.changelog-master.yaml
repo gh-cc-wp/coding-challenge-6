@@ -4,7 +4,7 @@ databaseChangeLog:
       author: Sekhar
       changes:
         - sqlFile:
-            path: db/liquibase/changelog/aurora-pg/cc_system_ddl.sql
+            path: db/liquibase/changelog/aurora-pg/ddl.sql
             relativeToChangelogFile: false
             splitStatements: true
             endDelimiter: ";"
